@@ -6,6 +6,15 @@ fun main() {
     var Sala3 = Factoria.GenerarSala(3)
     var Tiempo:Int=0
     var PacienteAtendido:Boolean=false
+    var ListaMedicos:ArrayList<Sanitario>
+    for(i in 0..(10..40).random()){
+        var x = (0..1).random()
+        if (x==0){
+            ListaMedicos.add(Factoria.GenerarTraumatologo())
+        }else{
+            ListaMedicos.add(Factoria.GenerarMedicoInterno())
+        }
+    }
     do {
         if (Tiempo%2==0){
             if (Sala1.pacientes.size<Sala2.pacientes.size && Sala1.pacientes.size<Sala3.pacientes.size){

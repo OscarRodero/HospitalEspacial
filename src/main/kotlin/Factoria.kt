@@ -31,4 +31,12 @@ object Factoria {
         }
         return AttReq
     }
+
+    fun GenerarTraumatologo(): Sanitario {
+
+    }
+
+    fun GenerarMedicoInterno(): Sanitario {
+
+    }
 }
