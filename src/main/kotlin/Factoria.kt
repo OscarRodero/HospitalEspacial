@@ -1,5 +1,5 @@
 object Factoria {
-    fun GenerarPaciente():Paciente{
+    fun GenerarPaciente():Paciente{ //Función que genera un paciente.
         var x = (1..3).random()
         var Compañia:String=""
         var AttReq:String=""
@@ -8,11 +8,11 @@ object Factoria {
         return P
     }
 
-    fun GenerarSala(x: Int): Sala_de_Espera {
+    fun GenerarSala(x: Int): Sala_de_Espera { //Función que genera una sala de espera.
         var MiSala= Sala_de_Espera(x)
         return MiSala
     }
-    fun GenerarCompañiaSeguros():String{
+    fun GenerarCompañiaSeguros():String{ //Función que genera una compañia de seguros aleatoria
         var x = (1..3).random()
         var Compañia:String=""
         when(x){
@@ -22,7 +22,7 @@ object Factoria {
         }
         return Compañia
     }
-    fun GenerarAtencion(x: Int):String{
+    fun GenerarAtencion(x: Int):String{ //Función que genera un dolor aleatorio para el paciente.
         var AttReq:String=""
         when(x){
             1 -> AttReq="Quemadura Láser"
@@ -32,17 +32,19 @@ object Factoria {
         return AttReq
     }
 
-    fun GenerarTraumatologo(): Sanitario {
-        var x = Traumatologo(1, "a")
+    fun GenerarTraumatologo(turno: Char): Sanitario { //Función que crea un Traumatólogo. (Traumatólogo hereda de Sanitario)
+        var nidi = Traumatologo.AsignarNIDI()
+        var x = Traumatologo(nidi, "Traumatólogo: "+nidi, turno, GenerarCompañiaSeguros())
         return x
     }
 
-    fun GenerarMedicoInterno(): Sanitario {
-        var x = Internista(1, "a")
+    fun GenerarMedicoInterno(turno: Char): Sanitario { //Función que crea un Internista. (Internista hereda de Sanitario)
+        var nidi = Internista.AsignarNIDI()
+        var x = Traumatologo(nidi, "Traumatólogo: "+nidi, turno, GenerarCompañiaSeguros())
         return x
     }
 
-    fun GenerarRegistro(paciente: Paciente, sanitario: Sanitario, turno: Char): Registro {
+    fun GenerarRegistro(paciente: Paciente, sanitario: Sanitario, turno: Char): Registro { //Función que genera un nuevo registro con los parámetros otorgados.
         var NuevoRegistro = Registro(paciente, sanitario, turno)
         return NuevoRegistro
     }
