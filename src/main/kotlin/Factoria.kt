@@ -33,10 +33,12 @@ object Factoria {
     }
 
     fun GenerarTraumatologo(): Sanitario {
-
+        var x = Traumatologo(1, "a")
+        return x
     }
 
     fun GenerarMedicoInterno(): Sanitario {
-
+        var x = MedicinaInterna(1, "a")
+        return x
     }
 }

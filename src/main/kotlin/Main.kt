@@ -6,7 +6,7 @@ fun main() {
     var Sala3 = Factoria.GenerarSala(3)
     var Tiempo:Int=0
     var PacienteAtendido:Boolean=false
-    var ListaMedicos:ArrayList<Sanitario>
+    var ListaMedicos = ArrayList<Sanitario>()
     for(i in 0..(10..40).random()){
         var x = (0..1).random()
         if (x==0){
@@ -101,7 +101,7 @@ fun main() {
         }
         Thread.sleep(1000)
         Tiempo++
-        if (Tiempo>=168){
+        if (Tiempo>=180){
             finSimulacion=true
         }
     }while(!finSimulacion)
