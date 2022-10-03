@@ -1,6 +1,4 @@
-open class Sanitario(var NIDI:Int, var Nombre:String, var turno:Char, var Compañia:String) {
-    /*
-    //Función deshabilitada temporalmente
+class Internista(NIDI: Int, Nombre: String, Turno:Char, Compañia:String) : Sanitario(NIDI, Nombre, Turno, Compañia){
     companion object{
         var contador:Int=0
         fun AsignarNIDI(): Int {
@@ -8,5 +6,4 @@ open class Sanitario(var NIDI:Int, var Nombre:String, var turno:Char, var Compa�
             return this.contador
         }
     }
-    */
 }
