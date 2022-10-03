@@ -26,7 +26,7 @@ object Factoria {
         var AttReq:String=""
         when(x){
             1 -> AttReq="Quemadura Láser"
-            2 -> AttReq="Ipacto chorritrónico"
+            2 -> AttReq="Impacto chorritrónico"
             3 -> AttReq="Otros"
         }
         return AttReq
@@ -38,7 +38,12 @@ object Factoria {
     }
 
     fun GenerarMedicoInterno(): Sanitario {
-        var x = MedicinaInterna(1, "a")
+        var x = Internista(1, "a")
         return x
+    }
+
+    fun GenerarRegistro(paciente: Paciente, sanitario: Sanitario, turno: Char): Registro {
+        var NuevoRegistro = Registro(paciente, sanitario, turno)
+        return NuevoRegistro
     }
 }

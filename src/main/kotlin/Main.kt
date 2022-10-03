@@ -1,5 +1,4 @@
 fun main() {
-    var tiempo:Int=0
     var finSimulacion=false;
     var Sala1 = Factoria.GenerarSala(1)
     var Sala2 = Factoria.GenerarSala(2)
@@ -7,7 +6,9 @@ fun main() {
     var Tiempo:Int=0
     var PacienteAtendido:Boolean=false
     var ListaMedicos = ArrayList<Sanitario>()
-    for(i in 0..(10..40).random()){
+    var ListaRegistro = ArrayList<Registro>()
+    var Turno='M'
+    for(i in 0..5){
         var x = (0..1).random()
         if (x==0){
             ListaMedicos.add(Factoria.GenerarTraumatologo())
@@ -31,9 +32,17 @@ fun main() {
                 if(!PacienteAtendido){
                     for (i in 0..Sala1.pacientes.size){
                         if (Sala1.pacientes[i].Prio==1){
-                            AtenderPaciente(i, Sala1)
-                            PacienteAtendido=true
-                            break
+                            for (i in 0..ListaMedicos.size){
+                                if (ListaMedicos[i].Compañia==Sala1.pacientes[i].CompañiaSeguros){
+                                    if(Sala1.pacientes[i].AtencionRequerida.equals("Impacto chorritrónico")&& ListaMedicos[i] is Internista || Sala1.pacientes[i].AtencionRequerida.equals("Quemadura Láser")&& ListaMedicos[i] is Traumatologo){
+                                        ListaRegistro.add(Factoria.GenerarRegistro(Sala1.pacientes[i], ListaMedicos[i], Turno))
+                                        AtenderPaciente(i, Sala1)
+                                        PacienteAtendido=true
+                                        break
+                                    }
+                                }
+                            }
+
                         }
                     }
                 }
